@@ -1,0 +1,4 @@
+cam_id: 'test'
+backend_server: 'localhost'
+bounds:
+  first: [[1, 1], [100, 100]]
