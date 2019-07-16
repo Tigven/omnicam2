@@ -30,7 +30,7 @@ class WebcamVideoStream(FrameSource):
         # be stopped
         self.stopped = False
 
-    def start(self) -> 'WebcamVideoStream':
+    def start(self) -> "WebcamVideoStream":
         """
         Start the thread to read frames from the video stream
         """

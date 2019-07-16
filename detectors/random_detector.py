@@ -8,6 +8,7 @@ class RandomDetector(Detector):
         time.sleep(3)
         return {label: random.randint(0, 1) for label in imgs_dict}
 
+
 class DebugDetector(Detector):
     def __init__(self):
         self.state = True

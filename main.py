@@ -1,10 +1,10 @@
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 
 from config.file import FileConfig
-from detectors.random_detector import RandomDetector, DebugDetector
+from detectors.random_detector import DebugDetector, RandomDetector
 from frame_processor.cv import CVFrameProcessor
 from frame_sources.camera import WebcamVideoStream
-from presenter.cv import CVPresenter
+from presenter.flask import FlaskPresenter
 from sender.http_sender import HTTPSender
 
 if __name__ == "__main__":
@@ -14,7 +14,7 @@ if __name__ == "__main__":
     processor = CVFrameProcessor(config.bounds)
     detector = RandomDetector()
     sender = HTTPSender(config.cam_id, config.backend)
-    presenter = CVPresenter()
+    presenter = FlaskPresenter()
 
     pool = ProcessPoolExecutor()
 

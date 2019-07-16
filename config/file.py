@@ -4,7 +4,7 @@ import yaml
 class FileConfig:
     def __init__(self, filename):
         with open(filename) as f:
-            config = yaml.load(f)
+            config = yaml.load(f, Loader=yaml.FullLoader)
         self.backend = config.get("backend_server")
         self.cam_id = config.get("cam_id")
         self.camera_num = config.get("camera_num", 1)
