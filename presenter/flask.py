@@ -7,8 +7,9 @@ from .basic import Presenter
 
 
 class FlaskPresenter(Presenter):
-    def __init__(self):
+    def __init__(self, port=5000):
         self.frame = None
+        self.port = port
 
     def show(self, image):
         self.frame = image
@@ -34,4 +35,4 @@ class FlaskPresenter(Presenter):
                 gen(), mimetype="multipart/x-mixed-replace; boundary=frame"
             )
 
-        Thread(target=app.run, args=(["0.0.0.0"])).start()
+        Thread(target=app.run, args=(["0.0.0.0", self.port])).start()

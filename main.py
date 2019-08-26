@@ -10,11 +10,11 @@ from sender.http_sender import HTTPSender
 if __name__ == "__main__":
 
     config = FileConfig("config.yaml")
-    source = WebcamVideoStream(0, 640, 480, 1)
+    source = WebcamVideoStream(0)
     processor = CVFrameProcessor(config.bounds)
     detector = RandomDetector()
     sender = HTTPSender(config.cam_id, config.backend)
-    presenter = FlaskPresenter()
+    presenter = FlaskPresenter(5000)
 
     pool = ProcessPoolExecutor()
 
