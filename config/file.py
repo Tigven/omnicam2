@@ -10,4 +10,4 @@ class FileConfig:
         self.camera_num = config.get("camera_num", 1)
         self.collect_dataset = config.get("collect_dataset", 0)
         self.show_spots = config.get("show_spots", True)
-        self.bounds = config.get("bounds", {})
+        self.bounds = config.get("bounds", [])

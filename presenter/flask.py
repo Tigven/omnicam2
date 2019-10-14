@@ -36,3 +36,4 @@ class FlaskPresenter(Presenter):
             )
 
         Thread(target=app.run, args=(["0.0.0.0", self.port])).start()
+        return self

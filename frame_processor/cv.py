@@ -71,7 +71,6 @@ class CVFrameProcessor(FrameProcessor):
         for label, img in imgs.items():
             filename = f"{label}-{datetime.now()}.jpeg"
             state = self.detector.parking_status.get(label)
-            print(f"Parking status:\n{self.detector.parking_status}")
             if state is None:
                 continue
             elif state == 1:
@@ -134,7 +133,7 @@ class CVFrameProcessor(FrameProcessor):
             if self.img_is_same(hist, self._hists.get(label, None), coeff):
                 doesnt_changed.append(label)
             self._hists[label] = hist
-        if label in doesnt_changed:
+        for label in doesnt_changed:
             del labeled_imgs[label]
         return labeled_imgs
 

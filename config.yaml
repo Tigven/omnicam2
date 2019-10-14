@@ -1,4 +1,6 @@
 cam_id: 'test'
 backend_server: 'localhost'
+camera_num: 2
 bounds:
-  first: [[1, 1], [100, 100]]
+  - first: [[1, 1], [100, 100]]
+  - second: [[100, 100], [200, 200]]

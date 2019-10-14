@@ -1,21 +1,20 @@
 import torchvision.transforms as transforms
 from fastai.conv_learner import *
 from fastai.dataset import *
-from fastai.plots import *
+# from fastai.plots import *
 
 from .basic import Detector
 
 
 class FastAIDetector(Detector):
-    def __init__(self, arch, size, path, model, parking_data):
-        PATH = path
+    def __init__(self, arch, size, path, model):
         self.sz = size
         if arch == 'resnet34':
             arch = resnet34
         elif arch == 'resnet18':
             arch = resnet18
         data = ImageClassifierData.from_paths(
-            PATH, bs=24, tfms=tfms_from_model(arch, self.sz))
+            path, bs=24, tfms=tfms_from_model(arch, self.sz))
         self.learn = ConvLearner.pretrained(arch, data, precompute=False)
         self.learn.load(model)
 
